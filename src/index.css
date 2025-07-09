@@ -27,3 +27,24 @@ body{
 .animate-pop {
   animation: pop 0.4s ease-out forwards;
 }
+
+.contact-bg{
+  background-color: #d9f1ff;
+  border-radius:20px;
+  padding: 10px;
+  border: 1px solid #1268fb;
+}
+
+.bg-color-contact{
+  border-radius: 7px;
+  background-color:#1268fb;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  line-height: 1;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+  z-index: 0;
+}

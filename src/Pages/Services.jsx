@@ -32,9 +32,9 @@ const Services = () => {
     <section className="bg-[#D9F1FF] min-h-screen ">
       <div className="py-16 px-4 mx-auto max-w-screen-xl">
         <div className="text-center mb-12">
-          <span className="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">Services</span>
+          <span className="text-sm uppercase tracking-wide text-gray-700 ">Services</span>
           <h2 className="mt-2 text-4xl font-extrabold text-[#081d45]">Human Resources Services</h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-700  max-w-2xl mx-auto">
             Nunc a scelerisque dolor, in cursus sem. Aenean turpis elit, tempus vel dictum consectetur.
           </p>
         </div>
