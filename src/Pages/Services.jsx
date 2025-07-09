@@ -29,7 +29,7 @@ const serviceArr = [
 
 const Services = () => {
   return (
-    <section className="bg-[#D9F1FF] dark:bg-gray-900">
+    <section className="bg-[#D9F1FF] min-h-screen ">
       <div className="py-16 px-4 mx-auto max-w-screen-xl">
         <div className="text-center mb-12">
           <span className="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">Services</span>
