@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom"
 
 
-const EmployessTable = ({ employees , deleteEmployee}) => {
+const EmployessTable = ({ employees , deleteEmployee , setEmployees}) => {
 
   const handleDelete = (id) => {
     deleteEmployee(id)
+  }
+
+  const handleSort = () => {
+    let sortArr = [...employees].sort((a , b) => {
+      return a.salary - b.salary;
+    })
+
+    setEmployees(sortArr);
   }
 
   return (
@@ -21,7 +29,7 @@ const EmployessTable = ({ employees , deleteEmployee}) => {
                   <th scope="col" className="px-6 py-3">
                     Employee Name
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3" onClick={handleSort}>
                     Salary
                   </th>
                   <th scope="col" className="px-6 py-3">
@@ -43,17 +51,17 @@ const EmployessTable = ({ employees , deleteEmployee}) => {
                         {emp.name}
                       </td>
                       <td className="px-6 py-4 text-gray-900">
-                        $ {emp.salary}
+                        ₹{Number(emp.salary).toLocaleString()}
                       </td>
                       <td className="px-6 py-4 text-gray-900">
                         {emp.department == 1 ? "Designing" : emp.department == 2 ? "Development" : emp.department == 3 ? "Finance" : "Sales and Marketing"}
                       </td>
                       <td className="px-6 py-4 text-gray-900 flex text-xl gap-7">
                         <Link to={`/edit-employee/${emp.id}`} className="font-medium text-green-600">
-                          <i class="ri-edit-box-line"></i>
+                          <i className="ri-edit-box-line"></i>
                         </Link>
                         <button className="font-medium text-red-600" onClick={() =>handleDelete(emp.id)}>
-                            <i class="ri-delete-bin-line"></i>
+                            <i className="ri-delete-bin-line"></i>
                         </button>
                       </td>
                     </tr>
