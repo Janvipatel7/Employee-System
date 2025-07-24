@@ -14,30 +14,34 @@ import AddEmployees from './Pages/AddEmployees';
 import 'remixicon/fonts/remixicon.css'
 import Services from './Pages/Services';
 import "remixicon/fonts/remixicon.css";
+import PublicRoute from './Components/PublicRoute';
 
 
 const App = () => {
-  const [isLoggedin , setIsLoggedin] = useState(false)
+  const [isLoggedin, setIsLoggedin] = useState(false)
 
   useEffect(() => {
     let loginStatus = JSON.parse(localStorage.getItem("isLoggedin")) || false
     setIsLoggedin(loginStatus)
   }, [])
-  console.log(isLoggedin);
   return (
     <>
       <BrowserRouter>
-        <Header isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin}/>
-          <Routes>
-              <Route path='/' element={<Home />}/>
-              <Route path='/services' element={<Services/>}/>
-              <Route path='/contact' element={<Contact/>}/>
-              <Route path='/login' element={<Login setIsLoggedin={setIsLoggedin}/>}/>
-              <Route path='/employees' element={<ProtectedRoute  Component={Employees}/>}/>
-              <Route path='/add-employees' element={<ProtectedRoute  Component={AddEmployees}/>}/>
-              <Route path='edit-employee/:id' element={<ProtectedRoute Component={EditEmployees}/>}/>
-          </Routes>
-          <ToastContainer />
+        <Header isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/login' element={
+            <PublicRoute isLoggedin={isLoggedin}>
+              <Login setIsLoggedin={setIsLoggedin} />
+            </PublicRoute>} />
+          <Route path='/employees' element={<ProtectedRoute Component={Employees} />} />
+          <Route path='/add-employees' element={<ProtectedRoute Component={AddEmployees} />} />
+          <Route path='/edit-employee' element={<ProtectedRoute Component={EditEmployees} />} />
+          <Route path='/edit-employee/:id' element={<ProtectedRoute Component={EditEmployees} />} />
+        </Routes>
+        <ToastContainer />
       </BrowserRouter>
     </>
   )
