@@ -77,10 +77,18 @@ const Employees = () => {
                         </div>
                     </div>
 
-
-                    <div className="overflow-x-auto">
-                        <EmployessTable  employees={employees}  setEmployees={setEmployees}  deleteEmployee={deleteEmployee}/>
-                    </div>
+                    {
+                        (employees.length !== 0 ? 
+                        <div className="overflow-x-auto">
+                            <EmployessTable  employees={employees}  setEmployees={setEmployees}  deleteEmployee={deleteEmployee}/>
+                        </div> :
+                        <div>
+                            <div className='items-center flex justify-center'>
+                                <img src="/Images/No data.png" alt="no-data" className="w-[700px]" />
+                            </div>
+                        </div>)
+                    }
+                    
                 </div>
             </section>
 

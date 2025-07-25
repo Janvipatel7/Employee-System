@@ -5,7 +5,7 @@ const PublicRoute = ({ isLoggedin, children }) => {
         return <Navigate to="/employees" />;
     }
     
-    return children          
+    return children         
 }
 
 export default PublicRoute
