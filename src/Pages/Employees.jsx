@@ -15,27 +15,7 @@ const Employees = () => {
         setSearchEmp(data);
     }, [])
 
-    const deleteEmployee = (id) => {
-        const updatedEmployees = employees.filter((emp) => {
-            return emp.id != id;
-        })
-        setEmployees(updatedEmployees);
-        localStorage.setItem("employees", JSON.stringify(updatedEmployees));
-        toast.success("Employee Deleted Successfully.....");
-    }
-
-    let newArr = [...employees]
-    const handleSearch = (e) => {
-        const value = e.target.value;
-        setSearch({ ...search, [e.target.id]: e.target.value })
-        let searchedArr = value.trim() == '' ? searchEmp : searchEmp.filter((item) => {
-            return item.name.toLowerCase().includes(value.toLowerCase())
-        })
-        setEmployees(searchedArr)
-
-    }
-
-
+    
     const handleChange = (e) => {
         const value = e.target.value;
 
@@ -47,6 +27,26 @@ const Employees = () => {
         })
         setEmployees(searchedArr)
     }
+
+    const deleteEmployee = (id) => {
+        const updatedEmployees = employees.filter((emp) => {
+            return emp.id != id;
+        })
+        setEmployees(updatedEmployees);
+        localStorage.setItem("employees", JSON.stringify(updatedEmployees));
+        toast.success("Employee Deleted Successfully.....");
+    }
+
+    const handleSearch = (e) => {
+        const value = e.target.value;
+        setSearch({ ...search, [e.target.id]: e.target.value })
+        let searchedArr = value.trim() == '' ? searchEmp : searchEmp.filter((item) => {
+            return item.name.toLowerCase().includes(value.toLowerCase())
+        })
+        setEmployees(searchedArr)
+
+    }
+
 
 
     return (

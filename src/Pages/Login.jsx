@@ -41,7 +41,7 @@ const Login = ({ setIsLoggedin }) => {
                                     Your email
                                 </label>
                                 <input onChange={handleChange}
-                                    type="email"  name="email"  id="email"  placeholder="name@company.com"   required
+                                    type="email"  name="email"  id="email"  placeholder="admin@gmail.com"   required
                                     className="w-full px-4 py-3 text-sm border border-blue-300 rounded-xl focus:ring-1 focus:ring-blue-500 focus:outline-none"
                                 />
                             </div>
